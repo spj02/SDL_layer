@@ -1,6 +1,6 @@
 project(
   'SDL_layer', 'c',
-  version: '1.0.0',
+  version: '1.0.1',
   license: 'zlib',
   meson_version: '>=1.8.0',
   default_options: [
@@ -25,7 +25,7 @@ sdl_layer_lib = library(
   version: meson.project_version(),
   sources: [headers, sources],
   dependencies: [
-    dependency('SDL3', required: true),
+    dependency('SDL3', required: true, fallback: 'sdl3'),
     dependency('wayland-client', required: true),
   ],
   include_directories: include_directories('headers'),
